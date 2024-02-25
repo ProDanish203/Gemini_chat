@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Footer, Header } from "@/components/shared";
+import { Raleway } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+      </head>
+      <body className={`${raleway.className} bg-bg`}>
+        <Toaster position="top-right" richColors/>
+        <Header/>
+        {children}
+
+        {/* <Footer/> */}
+      </body>
     </html>
   );
 }
